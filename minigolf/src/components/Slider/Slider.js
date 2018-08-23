@@ -1,26 +1,28 @@
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
-import 'swiper/dist/css/swiper.css'
+import Flickity from 'vue-flickity';
   export default {
     components:{
-      swiper, swiperSlide 
+      Flickity
     },
     data() {
       return {
         results:[],
-        swiperOption: {
-          pagination: {
-            el: '.swiper-pagination',
-            type: 'fraction'
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-          }
+        flickityOptions: {
+          "autoPlay": 5000,
+          "pageDots": true,
+          "resize": false,
+          "prevNextButtons": false,
+          "wrapAround": true
         }
       }
     },
     methods:{
+      next() {
+        this.$refs.flickity.next();
+      },
   
+      previous() {
+        this.$refs.flickity.previous();
+      }
     }
       
   }

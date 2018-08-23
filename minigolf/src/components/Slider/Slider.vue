@@ -1,14 +1,16 @@
 <template>
 <div>
- <swiper :options="swiperOption">
-        <swiper-slide class="slider-item">Bahn 1</swiper-slide>
-        <swiper-slide class="slider-item">Bahn 2</swiper-slide>
-        <swiper-slide class="slider-item">Bahn 3</swiper-slide>
-      
-       <div class="swiper-pagination" slot="pagination"></div>
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
-      </swiper>
+  <div class="track-container">
+<Flickity ref="flickity" :options="flickityOptions">
+  <div class="carousel-cell"></div>
+  <img src="https://api.heartbeat.gmbh/image/logo-minigolf-telli-aarau_b49298a1.jpg" class="carousel-cell">
+  <div class="carousel-cell"></div>
+  <div class="carousel-cell"></div>
+  <div class="carousel-cell"></div>
+  <div class="carousel-cell"></div>
+</Flickity>
+</div>
+<button class="nextButton" @click="next()">Next Player</button>
       </div>
 </template>
 

@@ -1,4 +1,48 @@
-.slider-item{
-    height:600px; 
-    background:gray
+/* external css: flickity.css */
+
+* { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
+
+
+.track-container{
+    margin-bottom: 45px;
+    
+    .carousel {
+        background: #EEE;
+      }
+      
+      .carousel-cell {
+        width: 66%;
+        height: 450px;
+        margin-right: 10px;
+        background: #8C8;
+        border-radius: 5px;
+        counter-increment: carousel-cell;
+      }
+      
+      /* cell number */
+      .carousel-cell:before {
+        display: block;
+        text-align: center;
+        content: counter(carousel-cell);
+        line-height: 200px;
+        font-size: 80px;
+        color: white;
+      }
+}
+
+.nextButton{
+  margin-top: 40px;
+  border-radius: 10px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }

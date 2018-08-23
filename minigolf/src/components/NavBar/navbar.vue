@@ -9,7 +9,10 @@
 </label>
 
 <nav>    
-<login></login> 
+<div>
+    <login></login>
+</div>
+ 
 </nav>
 </div>
 </template>
