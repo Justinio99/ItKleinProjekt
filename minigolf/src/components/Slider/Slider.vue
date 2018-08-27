@@ -12,6 +12,8 @@
   <div class="carousel-cell"></div>
 </Flickity>
 </div>
+
+<button @click="addHit">Increase hit</button><p>{{currentHits}}</p><button @click="removeHit" :disabled="disableDecrease">Decrese hit</button>
 <button class="nextButton" @click="next()">Next Player</button>
       </div>
 </template>

@@ -7,7 +7,6 @@ import { mapMutations,mapGetters } from 'vuex';
     },
     data() {
       return {
-        players:["Justin","Nina"],
         flickityOptions: {
           "pageDots": true,
           "resize": false,
@@ -16,47 +15,70 @@ import { mapMutations,mapGetters } from 'vuex';
           "draggable": false,
           "initialIndex": 0
         },
-        whichTrack: 1
+        whichTrack: 1,
+        lastPlayer: false,
+        currentHits: null,
+        disableDecrease: false
 
       }
     },
 
 
     methods:{
-      ...mapMutations(['addToResult']),
+      ...mapMutations(['increaseUserHits', 'setUserActive','decreaseUserHits']),
       
       next() {
+        this.currentHits = 0;
+        // this.updateActiveUser();
         this.$refs.flickity.next();
         this.whichTrack = this.whichTrack + 1 ;
-        console.log(this.whichTrack);
            //Get Selected Slide
-  //  console.log(this.$refs.flickity.selectCell(4));
-   //Select Slide
-  //  this.$refs.flickity.selectedIndex()
-   //Next slide
-  //  this.$refs.flickity.next();
+          //  console.log(this.$refs.flickity.selectCell(4));
+          //Select Slide
+          //  this.$refs.flickity.selectedIndex()
+          //Next slide
+          //  this.$refs.flickity.next();
       },
+
+      addHit () {
+        this.increaseUserHits({userId: this.activeUser.id, trackId: this.whichTrack});
+        this.currentHits +=1;
+        this.disableDecrease = false;
+        if(this.activeUser.track[this.whichTrack -1].hits  == 7){
+          console.log("zu viel");
+          this.next();
+        }
+      },
+      removeHit(){
+        if(!this.currentHits == 0){
+          this.decreaseUserHits({userId: this.activeUser.id, trackId: this.whichTrack});
+          this.currentHits -=1;
+          
+        }else{
+          this.disableDecrease = true;
+        }
+        
+      },
+
+      updateActiveUser() {
+        if (this.lastPlayer){ this.setUserActive(this.activeUser.id + 1);
+        if (this.getUsers[this.getUsers.length - 1].active === true){
+          this.lastPlayer = true;
+        }
+      } else {
+        this.next();
+      }
+      }
 
     },
    created(){
-    
-      let pLength = this.players.length
-      for(var i = 0; i < pLength; i++){
-        var index = this.players.indexOf(i);
-        var array = this.players;
-        if (index !== -1) array.splice(index, 1);
-        var bahn1 = 1;   //prompt("wiä viu");
-        this.players = array;
-        //Mir bruchä ä function wo es neus attr zum obj hinzuäfügt und des bi jedärä bahn
-        //  this.players.push({'name':this.players[i], 'banh1': bahn1});
-1
-      } 
-      console.log(this.players);
-
-     
+     this.setUserActive(1);
     },
     computed:{
-      ...mapGetters(['getResults'])
+      ...mapGetters(['getUsers']),
+      activeUser() {
+        return this.getUsers.filter(user => user.active === true)[0];
+      }
     }
       
   }
