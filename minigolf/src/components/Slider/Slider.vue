@@ -2,8 +2,10 @@
 <div>
   <div class="track-container">
 <Flickity ref="flickity" :options="flickityOptions">
-  <div class="carousel-cell"></div>
-  <img src="https://api.heartbeat.gmbh/image/logo-minigolf-telli-aarau_b49298a1.jpg" class="carousel-cell">
+  
+    <img  class="carousel-cell" src="../../assets/bahn1.png">
+ 
+  
   <div class="carousel-cell"></div>
   <div class="carousel-cell"></div>
   <div class="carousel-cell"></div>
