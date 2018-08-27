@@ -10,7 +10,7 @@
 
 <nav>    
 <div>
-    <keep-alive><login></login></keep-alive>
+    <login></login>
 </div>
  
 </nav>

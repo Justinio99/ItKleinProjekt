@@ -43,6 +43,7 @@ const mutations = {
     $state.users.push(user)
   },
   increaseUserHits ($state, infos) {
+    console.log(infos);
     $state.users.filter(user => user.id === infos.userId)[0].track.filter(track => track.trackId === infos.trackId)[0].hits += 1
   },
   decreaseUserHits ($state, infos) {

@@ -17,8 +17,9 @@ import { mapMutations,mapGetters } from 'vuex';
         },
         whichTrack: 1,
         lastPlayer: false,
-        currentHits: null,
-        disableDecrease: false
+        currentHits: 0,
+        disableDecrease: false,
+        showHitInput: false
 
       }
     },
@@ -27,9 +28,8 @@ import { mapMutations,mapGetters } from 'vuex';
     methods:{
       ...mapMutations(['increaseUserHits', 'setUserActive','decreaseUserHits']),
       
-      next() {
+      nextTrack() {
         this.currentHits = 0;
-        // this.updateActiveUser();
         this.$refs.flickity.next();
         this.whichTrack = this.whichTrack + 1 ;
            //Get Selected Slide
@@ -40,15 +40,28 @@ import { mapMutations,mapGetters } from 'vuex';
           //  this.$refs.flickity.next();
       },
 
-      addHit () {
-        this.increaseUserHits({userId: this.activeUser.id, trackId: this.whichTrack});
-        this.currentHits +=1;
-        this.disableDecrease = false;
-        if(this.activeUser.track[this.whichTrack -1].hits  == 7){
-          console.log("zu viel");
-          this.next();
+      nextPlayer(){
+        if(this.lastPlayer){
+          this.nextTrack();
+        }else{
+        this.currentHits = 0;
+        this.updateActiveUser();
+        this.showHitInput = true;
         }
       },
+      //Increase Hits per Track
+      addHit () {
+        console.log(this.activeUser.id);
+        this.increaseUserHits({userId: this.activeUser.id, trackId: this.whichTrack});
+        this.currentHits +=1;
+        console.log(this.activeUser);
+        this.disableDecrease = false;
+        if(this.activeUser.track[this.whichTrack -1].hits  >= 7){
+          console.log("zu viel");
+          this.nextPlayer();
+        }
+      },
+      //Decrease Hits per Track
       removeHit(){
         if(!this.currentHits == 0){
           this.decreaseUserHits({userId: this.activeUser.id, trackId: this.whichTrack});
@@ -59,20 +72,22 @@ import { mapMutations,mapGetters } from 'vuex';
         }
         
       },
-
+      //Update the User which is currently playing
       updateActiveUser() {
-        if (this.lastPlayer){ this.setUserActive(this.activeUser.id + 1);
+        if (!this.lastPlayer){ this.setUserActive(this.activeUser.id + 1);
         if (this.getUsers[this.getUsers.length - 1].active === true){
           this.lastPlayer = true;
         }
       } else {
-        this.next();
+        this.nextTrack();
       }
       }
 
     },
    created(){
      this.setUserActive(1);
+     this.showHitInput = true;
+     console.log(this.getUsers);
     },
     computed:{
       ...mapGetters(['getUsers']),
