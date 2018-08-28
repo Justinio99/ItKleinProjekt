@@ -1,19 +1,10 @@
 <template>
 <div>
-    <input id="burger" type="checkbox" style="display:none"/>
+<ul>
+    
+  <li @click="showLogin"><a class="active">Login</a></li>
+</ul>
 
-<label for="burger">
-    <span></span>
-    <span></span>
-    <span></span>
-</label>
-
-<nav>    
-<div>
-    <login></login>
-</div>
- 
-</nav>
 </div>
 </template>
 

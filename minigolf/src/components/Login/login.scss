@@ -9,19 +9,16 @@ html {
   
   .container {
     position: relative;
-    width: 380px;
-    height: 680px;
-    margin: 0 auto;
-    border: 1px solid #EEEEEE;
-    box-shadow: 0 0 8px 2px #ccc;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
   }
   
   img.logo {
     display: block;
     margin: 0 auto;
-    margin-top: 20px;
     width: 60%;
-    padding: 70px 0px;
+    padding: 50px 0px;
   }
   
   h1 {
@@ -30,6 +27,8 @@ html {
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 10px;
+    margin-bottom: 20px;
+
   }
   
   a {
