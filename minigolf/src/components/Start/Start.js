@@ -1,5 +1,7 @@
+
 export default {
   name: 'Start',
+  
   data () {
     return {
       players: [{name: '', id: 1}]
