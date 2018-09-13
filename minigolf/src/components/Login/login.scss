@@ -9,10 +9,12 @@ html {
   
   .container {
     position: relative;
+    top: 72px;
     width: 380px;
-    height: 680px;
+    height: 575px;
     margin: 0 auto;
     border: 1px solid #EEEEEE;
+    -webkit-box-shadow: 0 0 8px 2px #ccc;
     box-shadow: 0 0 8px 2px #ccc;
   }
   

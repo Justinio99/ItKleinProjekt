@@ -3,9 +3,10 @@
   <div class="track-container">
 <Flickity ref="flickity" :options="flickityOptions">
   
-    <img  class="carousel-cell" src="../../assets/bahn1.png">
  
   
+  <div class="carousel-cell"></div>
+  <div class="carousel-cell"></div>
   <div class="carousel-cell"></div>
   <div class="carousel-cell"></div>
   <div class="carousel-cell"></div>
@@ -16,9 +17,8 @@
 <button @click="addHit">Increase hit</button>
 <p>{{activeUser.name +' hat '+currentHits}}</p>
 <button @click="removeHit" :disabled="disableDecrease">Decrese hit</button>
-
 </div>
-<button class="nextButton" @click="nextTrack()">Next Player</button>
+<button class="nextButton" @click="nextPlayer()">Next Player</button>
       </div>
 </template>
 

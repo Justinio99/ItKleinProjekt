@@ -7,7 +7,7 @@ export default {
   },
   methods: {
     addPlayer () {
-      this.players.push({name: '', id: this.players.length + 1})
+      this.players.push({name: '', id: this.players.length + 1});
     },
     startGame () {
       this.$store.dispatch('setUpState', this.players)

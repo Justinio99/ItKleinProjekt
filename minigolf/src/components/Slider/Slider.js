@@ -25,9 +25,10 @@ export default {
   },
 
   methods: {
-    ...mapMutations(['increaseUserHits', 'setUserActive', 'decreaseUserHits']),
+    ...mapMutations(['increaseUserHits', 'setUserActive', 'decreaseUserHits','saveInCache','getLocalUsers']),
 
     nextTrack() {
+      this.saveInCache();
       this.currentHits = 0;
       this.$refs.flickity.next();
       this.whichTrack = this.whichTrack + 1;
@@ -42,6 +43,9 @@ export default {
     nextPlayer() {
       if (this.lastPlayer) {
         this.nextTrack();
+        this.setUserActive(1);
+        this.setActiveUser();
+        this.lastPlayer = false;
       } else {
         this.currentHits = 0;
         this.updateActiveUser();
@@ -51,7 +55,6 @@ export default {
     //Increase Hits per Track
     addHit() {
       if (this.activeUser.track[this.whichTrack - 1].hits !== 7) {
-        console.log('in slider active user: ', this.activeUser);
         this.increaseUserHits({
           userId: this.activeUser.id,
           trackId: this.whichTrack
@@ -90,11 +93,12 @@ export default {
       this.activeUser = this.getUsers.filter(user => user.active === true)[0];
     }
   },
-  created() {
+   created() {
+     //Get the Users from LocalStorage
+    this.getLocalUsers();
     this.setUserActive(1);
     this.setActiveUser();
-    this.showHitInput = true;
-    console.log(this.getUsers);
+    this.showHitInput = true; 
   },
   computed: {
     ...mapGetters(['getUsers'])

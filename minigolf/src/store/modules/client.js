@@ -11,7 +11,8 @@ const state = {
 const getters = {
   getUsers() {
     return state.users;
-  }
+  },
+
 };
 
 // actions
@@ -39,23 +40,9 @@ const mutations = {
     $state.users.push(user);
   },
   increaseUserHits($state, infos) {
-    console.log('state: ', $state);
-    console.log('infos: ', infos);
-    console.log(
-      'filtered user: ',
-      $state.users.filter(user => user.id === infos.userId)[0]
-    );
     $state.users
       .filter(user => user.id === infos.userId)[0]
       .track.filter(track => track.trackId === infos.trackId)[0].hits += 1;
-
-    console.log(
-      'filtered user track hits: ',
-      $state.users
-        .filter(user => user.id === infos.userId)[0]
-        .track.filter(track => track.trackId === infos.trackId)[0]
-    );
-    console.log('users in state: ', $state.users);
   },
   decreaseUserHits($state, infos) {
     $state.users
@@ -66,8 +53,25 @@ const mutations = {
     for (var i = 0; i < $state.users.length; i++) {
       $state.users[i].active = false;
     }
-    $state.users.filter(user => user.id === userId)[0].active = true;
-  }
+    if($state.users.length == 1){
+      $state.users[0].active = true;
+    }else{
+      $state.users.filter(user => user.id === userId)[0].active = true;
+    }
+    
+  },
+  saveInCache($state){
+    if($state.users.length > 0){
+        localStorage.clear('users');
+        localStorage.setItem('users', JSON.stringify($state.users));
+    }
+  },
+  getLocalUsers($state){
+      if($state.users.length < 1){
+        var cachedUsers = JSON.parse(localStorage.getItem('users'));
+        $state.users = cachedUsers;
+      }
+  },
 };
 
 export default {
