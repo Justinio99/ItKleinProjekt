@@ -20,15 +20,18 @@ export default {
       currentHits: 0,
       disableDecrease: false,
       showHitInput: false,
-      activeUser: {}
+      activeUser: {},
+      lastClicked: 'clicked1',
+
     };
   },
 
   methods: {
-    ...mapMutations(['increaseUserHits', 'setUserActive', 'decreaseUserHits','saveInCache','getLocalUsers']),
+    ...mapMutations(['increaseUserHits', 'setUserActive', 'decreaseUserHits','saveInCache','checkLocalUsers']),
 
     nextTrack() {
       this.saveInCache();
+      document.getElementById(this.lastClicked).style.background = 'none';
       this.currentHits = 0;
       this.$refs.flickity.next();
       this.whichTrack = this.whichTrack + 1;
@@ -41,6 +44,7 @@ export default {
     },
 
     nextPlayer() {
+      this.setAllButtonsWhite();
       if (this.lastPlayer) {
         this.nextTrack();
         this.setUserActive(1);
@@ -53,30 +57,19 @@ export default {
       }
     },
     //Increase Hits per Track
-    addHit() {
-      if (this.activeUser.track[this.whichTrack - 1].hits !== 7) {
+    addHit(val) {
         this.increaseUserHits({
           userId: this.activeUser.id,
-          trackId: this.whichTrack
+          trackId: this.whichTrack,
+          valHits: val
         });
-        this.currentHits += 1;
-        this.disableDecrease = false;
-      } else {
-        this.nextPlayer();
-      }
+        this.currentHits = val;
+        document.getElementById(this.lastClicked).style.background = 'none';
+        var id = 'clicked'+val;
+        document.getElementById(id).style.background = "green";
+        this.lastClicked = id;
     },
-    //Decrease Hits per Track
-    removeHit() {
-      if (!this.currentHits == 0) {
-        this.decreaseUserHits({
-          userId: this.activeUser.id,
-          trackId: this.whichTrack
-        });
-        this.currentHits -= 1;
-      } else {
-        this.disableDecrease = true;
-      }
-    },
+   
     //Update the User which is currently playing
     updateActiveUser() {
       if (!this.lastPlayer) {
@@ -91,16 +84,21 @@ export default {
     },
     setActiveUser() {
       this.activeUser = this.getUsers.filter(user => user.active === true)[0];
+    },
+
+    setAllButtonsWhite(){
+      for(var i = 1; i < 7; i++){
+        document.getElementById("clicked"+i).style.background = 'none';
+      }
     }
   },
    created() {
      //Get the Users from LocalStorage
-    this.getLocalUsers();
-    this.setUserActive(1);
-    this.setActiveUser();
-    this.showHitInput = true; 
+     this.setUserActive(1);
+     this.setActiveUser();
+     this.showHitInput = true; 
   },
-  computed: {
+  computed: { 
     ...mapGetters(['getUsers'])
   }
 };

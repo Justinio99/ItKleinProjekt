@@ -11,7 +11,7 @@
     methods:{
       showLogin(){
         if(this.clilcked){
-          this.$router.push('/');
+          this.$router.go(-1);
           this.clilcked = false;
         }else{
           this.$router.push('/Login');
