@@ -27,7 +27,7 @@ export default {
   },
 
   methods: {
-    ...mapMutations(['increaseUserHits', 'setUserActive', 'decreaseUserHits','saveInCache','checkLocalUsers']),
+    ...mapMutations(['increaseUserHits', 'setUserActive', 'decreaseUserHits','saveInCache','setLocalUser']),
 
     nextTrack() {
       this.saveInCache();
@@ -90,13 +90,24 @@ export default {
       for(var i = 1; i < 7; i++){
         document.getElementById("clicked"+i).style.background = 'none';
       }
+    },
+    checkCacheForUsers(){
+      var localData = JSON.parse(localStorage.getItem('users'));
+      console.log(localData);
+      this.setLocalUser(localData);
     }
   },
    created() {
-     //Get the Users from LocalStorage
-     this.setUserActive(1);
-     this.setActiveUser();
-     this.showHitInput = true; 
+     //TODO
+     if(localStorage.getItem('users')!= 'null'){
+      this.checkCacheForUsers();
+     }else{
+      this.setUserActive(1);
+      this.setActiveUser();
+      this.showHitInput = true; 
+     }
+     
+  
   },
   computed: { 
     ...mapGetters(['getUsers'])

@@ -71,13 +71,9 @@ const mutations = {
           localStorage.setItem('users', JSON.stringify($state.users));
       }
   },
-  setLocalUsers($state) {
-      if ($state.users.length < 1) {
-          var cachedUsers = JSON.parse(localStorage.getItem('users'));
-          $state.users = cachedUsers;
-          this.setUserActive(1);
-      }
-  },
+    setLocalUser($state, localUser){
+    $state.users = localUser;
+  }
 };
 
 export default {
