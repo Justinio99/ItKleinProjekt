@@ -37,7 +37,8 @@ const actions = {
           };
           commit('setUser', newUser);
       }
-  }
+  },
+ 
 };
 
 // mutations
@@ -72,7 +73,11 @@ const mutations = {
       }
   },
     setLocalUser($state, localUser){
+        console.log("This is the state", $state.users);
+        console.log("this  is the Lstorage",localUser)
     $state.users = localUser;
+    console.log("This is the after", $state.users);
+    
   }
 };
 

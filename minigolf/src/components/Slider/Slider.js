@@ -1,6 +1,7 @@
 /* eslint-disable */
 import Flickity from 'vue-flickity';
-import { mapMutations, mapGetters } from 'vuex';
+import { mapMutations, mapGetters, Store } from 'vuex';
+import store from '../../store'
 export default {
   components: {
     Flickity
@@ -35,12 +36,6 @@ export default {
       this.currentHits = 0;
       this.$refs.flickity.next();
       this.whichTrack = this.whichTrack + 1;
-      //Get Selected Slide
-      //  console.log(this.$refs.flickity.selectCell(4));
-      //Select Slide
-      //  this.$refs.flickity.selectedIndex()
-      //Next slide
-      //  this.$refs.flickity.next();
     },
 
     nextPlayer() {
@@ -85,22 +80,38 @@ export default {
     setActiveUser() {
       this.activeUser = this.getUsers.filter(user => user.active === true)[0];
     },
-
+    //Set Buttons unclicked
     setAllButtonsWhite(){
       for(var i = 1; i < 7; i++){
         document.getElementById("clicked"+i).style.background = 'none';
       }
     },
+    //Update store with localData if exists
     checkCacheForUsers(){
       var localData = JSON.parse(localStorage.getItem('users'));
-      console.log(localData);
-      this.setLocalUser(localData);
-    }
+      store.commit("setLocalUser", localData);
+
+      for(var i = 0; i < localData[0].track.length; i++){
+        if(localData[0].track[i].played == true){
+          this.whichTrack = localData[0].track[i].trackId +1;
+        }
+      }
+      console.log(this.whichTrack);
+    },
+  
+  },
+  mounted() {
+    this.$refs.flickity.selectCell(this.whichTrack -1);
   },
    created() {
-     //TODO
+     //Check if cache has data
      if(localStorage.getItem('users')!= 'null'){
       this.checkCacheForUsers();
+      this.setUserActive(1);
+      this.setActiveUser();
+
+   
+      
      }else{
       this.setUserActive(1);
       this.setActiveUser();
