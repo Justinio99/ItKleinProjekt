@@ -1,6 +1,7 @@
 <template>
 <div class="container">
-     <button @click="startGame">Lets go</button>
+     <!-- <button class="startButton" @click="startGame">Lets go</button> -->
+     <Button textName="Spiel"></Button>
      <div class="players">
     <input class="addPlayer" type="text" :placeholder="`Spieler ${player.id}`" v-for="(player, index) in players" :key="player.id" v-model="players[index].name">
     </div>

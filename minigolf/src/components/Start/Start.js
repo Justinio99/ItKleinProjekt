@@ -1,7 +1,9 @@
-
+import Button from '../Button/Button.vue'
 export default {
   name: 'Start',
-  
+  components:{
+    Button
+  },
   data () {
     return {
       players: [{name: '', id: 1}]

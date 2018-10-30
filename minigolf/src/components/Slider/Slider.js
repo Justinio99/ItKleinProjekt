@@ -61,7 +61,7 @@ export default {
         this.currentHits = val;
         document.getElementById(this.lastClicked).style.background = 'none';
         var id = 'clicked'+val;
-        document.getElementById(id).style.background = "green";
+        document.getElementById(id).style.background = "#0C847E";
         this.lastClicked = id;
     },
    
