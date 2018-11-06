@@ -12,24 +12,36 @@ Vue.use(Router)
 const router = new Router({
   routes: [
     {
-      path: '/',
+      path: '/home',
       name: 'Start',
-      component: Start
+      component: Start,
+      meta: {
+        requiresAuth: false
+      } 
     },
     {
       path: '/login',
       name: 'Login',
-      component: LoginPage
+      component: LoginPage,
+      meta: {
+        requiresAuth: false
+      }
     },
     {
       path: '/SliderTest',
       name: 'SliderTEst',
-      component: Slider
+      component: Slider,
+      meta: {
+        requiresAuth: false
+      }
     },
     {
       path: '/signup',
       name: 'signup',
-      component: Signup
+      component: Signup,
+      meta: {
+        requiresAuth: false
+      }
     },
     {
       path: '/statistik',
@@ -42,15 +54,18 @@ const router = new Router({
   ]
 })
 
-router.beforeEach((to,from,next) =>{
-let currentUser = firebase.auth().currentUser;
-let requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
-if(requiresAuth && !currentUser) next('login');
-else if (!requiresAuth && currentUser) next('/');
-else next();
-})
+// router.beforeEach((to, from, next) => {
+//   if(to.matched.some(record => record.meta.requiresAuth)) {
+//      if (firebase.auth().onAuthStateChanged(user)) {
+//    next({
+//      path: '/Login'
+//    })
+//   } else next()
 
+// }
+// }
+// );
 
 
 export default router;
