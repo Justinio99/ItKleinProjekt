@@ -1,0 +1,13 @@
+
+.players{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.addPlayer{
+    border: 1px solid black;
+    height: 30px;
+    text-align: center;
+}

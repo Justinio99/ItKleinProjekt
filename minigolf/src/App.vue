@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <navbar v-show="!loggedIn"></navbar>
+    <navbar></navbar>
+
     <router-view/>
   </div>
 </template>
 
 <script>
 import navbar from './components/NavBar/navbar.vue';
-
 export default {
   name: 'app',
   components: { navbar },

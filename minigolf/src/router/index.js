@@ -1,19 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld/HelloWorld.vue'
-import LoginPage from '../pages/Login/Login.vue'
+import LoginPage from '../components/Login/login.vue'
 import Slider from '../components/Slider/Slider.vue'
+import Start from '@/components/Start/Start.vue'
+import Signup from '../components/SignUp/signup.vue'
+import Chart from '../components/Chart/chart.vue'
+import firebase from 'firebase'
+
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Start',
+      component: Start
     },
     {
-      path: '/Login',
+      path: '/login',
       name: 'Login',
       component: LoginPage
     },
@@ -21,7 +25,32 @@ export default new Router({
       path: '/SliderTest',
       name: 'SliderTEst',
       component: Slider
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: Signup
+    },
+    {
+      path: '/statistik',
+      name: 'statistik',
+      component: Chart,
+      meta: {
+        requiresAuth: true
+      }
     }
-
   ]
 })
+
+router.beforeEach((to,from,next) =>{
+let currentUser = firebase.auth().currentUser;
+let requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+if(requiresAuth && !currentUser) next('login');
+else if (!requiresAuth && currentUser) next('/');
+else next();
+})
+
+
+
+export default router;

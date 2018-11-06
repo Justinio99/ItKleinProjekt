@@ -4,13 +4,14 @@
 
   <h1>Club Member</h1>
 
-  <form>
-    <input v-model="username" type="text" placeholder="Username" />
+
+    <input v-model="email" type="text" placeholder="Email" />
     <input v-model="password" type="password" placeholder="Password" />
 
     <a href="#">Forgot password?</a>
-    <input type="submit" value="Sign In" />
-  </form>
+   <button @click="login">login</button>
+
+
 
 </div>
 </template>

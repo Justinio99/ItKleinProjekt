@@ -9,10 +9,12 @@ html {
   
   .container {
     position: relative;
+    top: 72px;
     width: 380px;
-    height: 680px;
+    height: 575px;
     margin: 0 auto;
     border: 1px solid #EEEEEE;
+    -webkit-box-shadow: 0 0 8px 2px #ccc;
     box-shadow: 0 0 8px 2px #ccc;
   }
   
@@ -20,7 +22,7 @@ html {
     display: block;
     margin: 0 auto;
     width: 60%;
-    padding: 70px 0px;
+    padding: 50px 0px;
   }
   
   h1 {
@@ -29,6 +31,8 @@ html {
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 10px;
+    margin-bottom: 20px;
+
   }
   
   a {
