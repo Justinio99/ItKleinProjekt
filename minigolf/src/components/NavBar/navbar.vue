@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="nav-bar">
 <ul>
     
   <li @click="showLogin"><a class="active">Login</a></li>

@@ -17,4 +17,5 @@ export default {
       this.$router.push('/slidertest');
     }
   }
+
 }
