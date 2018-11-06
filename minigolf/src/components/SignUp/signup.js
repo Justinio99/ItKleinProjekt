@@ -4,7 +4,7 @@ import firebase from 'firebase'
       name: 'signup',
     data() {
       return {
-      
+        picture: 'https://www.mcbern.ch/fileadmin/logos/logo_mcbmw.png',
         email:'',
         password:'',
         firstname: '',
@@ -22,5 +22,5 @@ import firebase from 'firebase'
         })
       }
     },
- 
+
   }
