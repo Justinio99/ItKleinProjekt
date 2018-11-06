@@ -1,6 +1,6 @@
-import firebase from 'firebase'
+import firebase, { firestore } from 'firebase'
 
-  export default {
+export default {
       name: 'signup',
     data() {
       return {
@@ -16,7 +16,16 @@ import firebase from 'firebase'
     methods:{
       signUp(){
         firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(this.email, this.password).then((user) => {
-          alert('Your account has been created')
+
+          const firestore = firebase.firestore();
+
+          firestore.collection('users').doc(user.user.uid).set({
+            firstname: this.firstname,
+            lastname: this.lastname,
+            isClubMember: this.isClubMember
+          })
+          console.log(user)
+          this.$router.push('/SliderTest');
         }).catch((err) =>{
           alert(err.message);
         })

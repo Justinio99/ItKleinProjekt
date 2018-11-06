@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 import firebase from 'firebase'
 import ToggleButton from 'vue-js-toggle-button'
+
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 
@@ -19,6 +20,8 @@ const config = {
 };
 
 firebase.initializeApp(config);
+firebase.firestore().settings({timestampsInSnapshots: true});
+
 Vue.use(ToggleButton)
 
 new Vue({
@@ -28,3 +31,5 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+export default firebase.firestore();

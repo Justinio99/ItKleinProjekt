@@ -23,7 +23,7 @@ import firebase from 'firebase'
       logout(){
         firebase.auth().signOut().then(() =>{
           alert('you are logged out')
-          this.$router.push('/');
+          this.$router.push('/home');
           
         })
       }
