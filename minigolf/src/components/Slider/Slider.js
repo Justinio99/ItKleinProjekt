@@ -96,7 +96,7 @@ export default {
           this.whichTrack = localData[0].track[i].trackId +1;
         }
       }
-      console.log(this.whichTrack);
+
     },
   
   },

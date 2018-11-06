@@ -1,4 +1,4 @@
-
+import firebase from 'firebase'
   export default {
     components:{
       
@@ -19,6 +19,13 @@
         }
         
         
+      },
+      logout(){
+        firebase.auth().signOut().then(() =>{
+          alert('you are logged out')
+          this.$router.push('/');
+          
+        })
       }
     }
  
