@@ -10,7 +10,7 @@
   <div class="carousel-cell"></div>
 </Flickity>
 </div>
-<div class="counter-container" >
+<div class="counter-container">
 <!-- <button @click="addHit">Increase hit</button> -->
 
 <div class="increase">
