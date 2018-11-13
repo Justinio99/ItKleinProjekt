@@ -1,5 +1,8 @@
 import firebase from 'firebase'
   export default {
+    components:{
+
+    },
     data() {
       return {
         picture: 'https://www.mcbern.ch/fileadmin/logos/logo_mcbmw.png',
@@ -14,7 +17,11 @@ import firebase from 'firebase'
         }).catch((err) =>{
           alert(err.message);
         })
+      },
+      
+      showSignUp(){
+        this.$router.push('/Signup');
       }
     }
- 
+
   }

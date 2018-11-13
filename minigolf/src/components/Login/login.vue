@@ -8,6 +8,7 @@
     <input v-model="email" type="text" placeholder="Email" />
     <input v-model="password" type="password" placeholder="Password" />
 
+    <a @click="showSignUp">Sign Up</a>
     <a href="#">Forgot password?</a>
    <button @click="login">login</button>
 
