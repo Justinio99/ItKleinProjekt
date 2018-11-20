@@ -1,0 +1,69 @@
+.rank {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 40px;
+    margin: 0;
+ }
+ .title1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -125px;
+    font-weight: bold;
+ }
+ 
+ .title2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -70px;
+    font-weight: bold;
+ }
+ .title3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -30px;
+    font-weight: bold;
+ }
+ .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+ }
+ .place2 {
+    width: 80px;
+    height: 100px;
+    background-color: red;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+ .place1 {
+    width: 80px;
+    height: 150px;
+    background-color: green;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+ .place3 {
+    width: 80px;
+    height: 50px;
+    background-color: yellow;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+ 

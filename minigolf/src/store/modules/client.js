@@ -46,7 +46,7 @@ const mutations = {
   setUser($state, user) {
       $state.users.push(user);
   },
-  //Increase and Descrase users Hits using Val
+  //Increase and Descrase users Hits using val
   increaseUserHits($state, infos) {
       var currentUser = $state.users.filter(user => user.id === infos.userId)[0];
       currentUser.track.filter(track => track.trackId === infos.trackId)[0].hits = infos.valHits;

@@ -23,6 +23,7 @@ export default {
       showHitInput: false,
       activeUser: {},
       lastClicked: 'clicked1',
+      wasPrevPlayer: false,
       
 
     };
@@ -38,12 +39,27 @@ export default {
       this.$refs.flickity.next();
       this.whichTrack = this.whichTrack + 1;
     },
+    lastTrack() {
+      this.saveInCache();
+      this.currentHits = 0;
+      this.$refs.flickity.previous();
+      this.whichTrack = this.whichTrack - 1;
+    },
+
 
     nextPlayer() {
       this.setAllButtonsWhite();
-      if (this.lastPlayer || this.getUsers.length==1) {
+      if(this.wasPrevPlayer){
+        console.log(this.activeUser)
+        this.setUserActive(this.activeUser.id + 1);
+        console.log(this.activeUser)
+        const track = this.activeUser.track.filter(track => track.trackId  == this.whichTrack);
+        console.log(track);
+        document.getElementById(`clicked${track[0].hits}`).style.background = "red";
+      }
+      if (this.lastPlayer || this.getUsers.length == 1) {
         this.nextTrack();
-        this.setUserActive(1);
+        this.setUserActive(1); 
         this.setActiveUser();
         this.lastPlayer = false;
       } else {
@@ -56,6 +72,16 @@ export default {
         this.$router.push('/ranking')
       }
     },
+
+    previousPlayer() {
+      this.wasPrevPlayer = true;
+      this.lastTrack();
+      this.setActiveUser(this.activeUser.id -1);
+      const track = this.activeUser.track.filter(track => track.trackId  == this.whichTrack);
+      document.getElementById(`clicked${track[0].hits}`).style.background = "yellow";
+
+    },
+
     //Increase Hits per Track
     addHit(val) {
         this.increaseUserHits({
