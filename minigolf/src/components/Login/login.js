@@ -11,10 +11,10 @@ import firebase from 'firebase'
       login(){
         firebase.auth().signInWithEmailAndPassword(this.email,this.password).then((user) =>{
           alert('you are now logged in');
+          this.$router.push('/home')
         }).catch((err) =>{
           alert(err.message);
         })
       }
     }
- 
   }

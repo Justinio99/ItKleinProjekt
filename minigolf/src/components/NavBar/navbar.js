@@ -26,7 +26,10 @@ import firebase from 'firebase'
           this.$router.push('/home');
           
         })
-      }
+      },
+      showHome(){
+        this.$router.push('/home');
+      },
     }
  
   }

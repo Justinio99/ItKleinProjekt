@@ -5,6 +5,7 @@ import Slider from '../components/Slider/Slider.vue'
 import Start from '@/components/Start/Start.vue'
 import Signup from '../components/SignUp/signup.vue'
 import Chart from '../components/Chart/chart.vue'
+import Ranking from '../components/ranking/ranking.vue'
 import firebase from 'firebase'
 
 Vue.use(Router)
@@ -50,22 +51,30 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/ranking',
+      name: 'ranking',
+      component: Ranking,
+      meta: {
+        requiresAuth: false
+      }
     }
   ]
 })
 
 
-// router.beforeEach((to, from, next) => {
-//   if(to.matched.some(record => record.meta.requiresAuth)) {
-//      if (firebase.auth().onAuthStateChanged(user)) {
-//    next({
-//      path: '/Login'
-//    })
-//   } else next()
-
-// }
-// }
-// );
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth) {
+    const user = firebase.auth().currentUser; 
+    if (firebase.auth().onAuthStateChanged(user)) {
+      next()
+    } else {
+      next({name: 'login'})
+    }
+  }
+  next()
+})
 
 
 export default router;

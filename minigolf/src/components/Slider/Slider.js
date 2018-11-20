@@ -9,7 +9,7 @@ export default {
   data() {
     return {
       flickityOptions: {
-        pageDots: true,
+        pageDots: false,
         resize: false,
         prevNextButtons: false,
         wrapAround: true,
@@ -23,6 +23,7 @@ export default {
       showHitInput: false,
       activeUser: {},
       lastClicked: 'clicked1',
+      
 
     };
   },
@@ -40,7 +41,7 @@ export default {
 
     nextPlayer() {
       this.setAllButtonsWhite();
-      if (this.lastPlayer) {
+      if (this.lastPlayer || this.getUsers.length==1) {
         this.nextTrack();
         this.setUserActive(1);
         this.setActiveUser();
@@ -49,6 +50,10 @@ export default {
         this.currentHits = 0;
         this.updateActiveUser();
         this.showHitInput = true;
+      }
+
+      if(this.getUsers[this.getUsers.length-1].track[17].played){
+        this.$router.push('/ranking')
       }
     },
     //Increase Hits per Track
@@ -117,7 +122,6 @@ export default {
       this.setActiveUser();
       this.showHitInput = true; 
      }
-     
   
   },
   computed: { 

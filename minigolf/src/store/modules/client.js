@@ -78,6 +78,9 @@ const mutations = {
     $state.users = localUser;
     console.log("This is the after", $state.users);
     
+  },
+  setClearState(state) {
+    state.users = [];
   }
 };
 
