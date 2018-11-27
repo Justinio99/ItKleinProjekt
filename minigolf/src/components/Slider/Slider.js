@@ -33,6 +33,7 @@ export default {
     ...mapMutations(['increaseUserHits', 'setUserActive', 'decreaseUserHits','saveInCache','setLocalUser']),
 
     nextTrack() {
+ 
       this.saveInCache();
       document.getElementById(this.lastClicked).style.background = 'none';
       this.currentHits = 0;
@@ -50,12 +51,10 @@ export default {
     nextPlayer() {
       this.setAllButtonsWhite();
       if(this.wasPrevPlayer){
-        console.log(this.activeUser)
-        this.setUserActive(this.activeUser.id + 1);
-        console.log(this.activeUser)
+        this.setUserActive(this.activeUser.id);
         const track = this.activeUser.track.filter(track => track.trackId  == this.whichTrack);
-        console.log(track);
         document.getElementById(`clicked${track[0].hits}`).style.background = "red";
+        this.wasPrevPlayer = false;
       }
       if (this.lastPlayer || this.getUsers.length == 1) {
         this.nextTrack();

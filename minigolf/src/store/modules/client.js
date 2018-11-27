@@ -54,7 +54,6 @@ const mutations = {
   },
   //Set user Active that we know which player is playing
   setUserActive($state, userId) {
-    console.log($state.useres);
       for (var i = 0; i < $state.users.length; i++) {
           $state.users[i].active = false;
       }
