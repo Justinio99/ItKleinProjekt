@@ -2,7 +2,7 @@
 <div>
   <div class="track-container">
 <Flickity ref="flickity" :options="flickityOptions">
-  <div class="carousel-cell"></div>
+  <div class="carousel-cell"><iframe width="245" height="450" src="https://www.youtube.com/embed/hklhInFaEvA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; color=white;" ></iframe></div>
   <div class="carousel-cell"></div>
   <div class="carousel-cell"></div>
   <div class="carousel-cell"></div>
