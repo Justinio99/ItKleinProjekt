@@ -1,6 +1,10 @@
 import { mapMutations, mapGetters } from 'vuex';
-  export default {
+import Podium from '../Podium/Podium.vue'  
+export default {
     name: 'ranking',
+    components:{
+      Podium
+    },
     data() {
       return {
         userResults: []

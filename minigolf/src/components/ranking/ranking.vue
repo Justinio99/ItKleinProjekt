@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-
+<Podium :Players="userResults"></Podium>
 Hallo
 <button @click="resetUser">Close</button>
 </div>
