@@ -50,6 +50,22 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/ranking',
+      name: 'ranking',
+      component: Ranking,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/chart',
+      name: 'chart',
+      component: Chart,
+      meta: {
+        requiresAuth: false
+      }
     }
   ]
 })
