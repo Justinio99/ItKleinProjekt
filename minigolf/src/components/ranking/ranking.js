@@ -1,52 +1,83 @@
 import { mapMutations, mapGetters } from 'vuex';
-import Podium from '../Podium/Podium.vue'  
+import firebase from 'firebase';
+import Podium from '../Podium/Podium'
 export default {
-    name: 'ranking',
-    components:{
-      Podium
-    },
-    data() {
-      return {
-        userResults: []
+  name: 'ranking',
+  components:{
+    Podium
+  },
+  data() {
+    return {
+      userResults: [],
+      users:null,
+      selectedValue: null,
+      isLoggedIn: false,
+      askForPlayer: false
+    }
+  },
+  async created() {
+    this.isLoggedIn = firebase.auth().currentUser;
+   await this.setLocalStorage()
+   console.log(this.users);
+    this.userResults = [];
+    for (let i = 0; i < this.users.length; i++) {
+      var result = 0;
+
+      for (let j = 0; j < this.users[i].track.length; j++) {
+        result += this.users[i].track[j].hits;
       }
+
+      this.userResults.push({ name: this.users[i].name, result: result })
+
+    }
+  },
+
+
+  methods: {
+    async setLocalStorage(){
+      this.users = JSON.parse(localStorage.getItem('users'))
     },
-    created(){
-        const users = this.getUsers;
-       this.userResults = [];
-        for (let i = 0; i < users.length; i++) {
-            var result = 0;
+    ...mapMutations(['setClearState']),
 
-              for (let j = 0; j < users[i].track.length; j++) {
-                result += users[i].track[j].hits;
-            }
-
-            this.userResults.push({name: users[i].name, result: result}) 
-            console.log('Hallo Justinio:  ', this.userResults.sort(this.dynamicSort("result")))
-        }
-    },
-
-    methods:{
-      ...mapMutations(['setClearState']),
-
-      dynamicSort(property) {
-        var sortOrder = 1;
-        if(property[0] === "-") {
-            sortOrder = -1;
-            property = property.substr(1);
-        }
-        return function (a,b) {
-            var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
-            return result * sortOrder;
-        }
+    dynamicSort(property) {
+      var sortOrder = 1;
+      if (property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+      }
+      return function (a, b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+      }
     },
     resetUser() {
       localStorage.clear()
       this.setClearState()
       this.$router.push('/home');
-    }
     },
-    computed: { 
-        ...mapGetters(['getUsers'])
+    saveToDatabase() {
+      // this.userResults.find({name: })
+      const myGame = this.users.filter((user)=> user.id == this.selectedValue);
+      console.log(myGame);
+      var resultUser = null;
+      for (let j = 0; j < myGame[0].track.length; j++) {
+        resultUser += myGame[0].track[j].hits;
       }
+   
+      const firestore = firebase.firestore()
+      firestore.collection('playedGames').add({
+       playedGame: myGame,
+       caclHits: resultUser,
+       userId: firebase.auth().currentUser.uid,
+       createdAt: new Date()
+     })
 
+    }
+
+
+  },
+  computed: {
+    ...mapGetters(['getUsers'])
   }
+
+}
