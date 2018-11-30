@@ -1,8 +1,11 @@
 import { mapMutations, mapGetters } from 'vuex';
 import firebase from 'firebase';
-
+import Podium from '../Podium/Podium'
 export default {
   name: 'ranking',
+  components:{
+    Podium
+  },
   data() {
     return {
       userResults: [],
