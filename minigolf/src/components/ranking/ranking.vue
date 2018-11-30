@@ -1,6 +1,8 @@
 <template>
 <div class="container">
-   <Podium :Players="userResults"></Podium>
+
+<Podium :Players="userResults"></Podium>
+
 <button @click="resetUser">Close</button>
 <button @click="askForPlayer = true" v-show="isLoggedIn">Abspeichern</button>
 <div class="whichUser" v-if="askForPlayer">
