@@ -43,3 +43,5 @@
 
 <style src="./Slider.scss" lang="scss" scoped></style>
 <script src="./Slider.js"></script>
+<!--<video autoplay class="spot" height="400" width="350" poster="@/assets/mini.jpg" loop controls><source
+  src="https://www.youtube.com/watch?v=D4X8CZYiURA" type="video/webm"></video>!-->
