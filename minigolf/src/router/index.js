@@ -4,9 +4,10 @@ import LoginPage from '../components/Login/login.vue'
 import Slider from '../components/Slider/Slider.vue'
 import Start from '@/components/Start/Start.vue'
 import Signup from '../components/SignUp/signup.vue'
-import Chart from '../components/Chart/chart.vue'
+import Statistik from '../components/Statistik/statistik.vue'
 import Ranking from '../components/ranking/ranking.vue'
 import firebase from 'firebase'
+import statistik from '../components/Statistik/statistik';
 
 Vue.use(Router)
 
@@ -47,9 +48,9 @@ const router = new Router({
     {
       path: '/statistik',
       name: 'statistik',
-      component: Chart,
+      component: Statistik,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {

@@ -1,5 +1,6 @@
 import { mapMutations, mapGetters } from 'vuex';
 import firebase from 'firebase';
+import moment from 'moment'
 import Podium from '../Podium/Podium'
 export default {
   name: 'ranking',
@@ -56,16 +57,15 @@ export default {
       this.$router.push('/home');
     },
     saveToDatabase() {
-      // this.userResults.find({name: })
       const myGame = this.users.filter((user)=> user.id == this.selectedValue);
-      console.log(myGame);
+   
       var resultUser = null;
       for (let j = 0; j < myGame[0].track.length; j++) {
         resultUser += myGame[0].track[j].hits;
       }
    
       const firestore = firebase.firestore()
-      firestore.collection('playedGames').add({
+      firestore.collection('playedGames').doc(firebase.auth().currentUser.uid).collection(firebase.auth().currentUser.uid).doc().set({
        playedGame: myGame,
        caclHits: resultUser,
        userId: firebase.auth().currentUser.uid,
