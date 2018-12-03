@@ -9,7 +9,7 @@
     <input v-model="password" type="password" placeholder="Password" />
 
     <a href="#">Forgot password?</a>
-   <button @click="login">login</button><br>
+   <button  @click="login">login</button><br>
    <button @click="()=> this.$router.push('/signup')">signup</button>
 
 

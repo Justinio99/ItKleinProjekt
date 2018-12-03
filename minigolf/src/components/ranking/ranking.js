@@ -1,7 +1,7 @@
 import { mapMutations, mapGetters } from 'vuex';
 import firebase from 'firebase';
 import moment from 'moment'
-import Podium from '../Podium/Podium'
+import Podium from '../Podium/Podium.vue'
 export default {
   name: 'ranking',
   components:{

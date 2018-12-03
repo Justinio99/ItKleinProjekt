@@ -44,8 +44,8 @@ export default {
 
             this.results = []
             const playedGames = firebase.firestore().collection('playedGames')
-                .doc('EBAwrfHlohdcXy4t6Vvg59wMMfl2')
-                .collection('EBAwrfHlohdcXy4t6Vvg59wMMfl2')
+                .doc(this.currentUser)
+                .collection(this.currentUser)
                 .where('createdAt', '<', currentYear)
                 .where('createdAt', '>', lastYear._d);
 
@@ -69,8 +69,8 @@ export default {
             //DB
             this.results = []
             const playedGames = firebase.firestore().collection('playedGames')
-                .doc('EBAwrfHlohdcXy4t6Vvg59wMMfl2')
-                .collection('EBAwrfHlohdcXy4t6Vvg59wMMfl2')
+                .doc(this.currentUser)
+                .collection(this.currentUser)
                 .where('createdAt', '<', currentDate)
                 .where('createdAt', '>', endDate._d);
 
@@ -87,8 +87,8 @@ export default {
             let currentDate = new Date();
             const endDate = moment().subtract(1, 'months');
             const playedGames = firebase.firestore().collection('playedGames')
-                .doc('EBAwrfHlohdcXy4t6Vvg59wMMfl2')
-                .collection('EBAwrfHlohdcXy4t6Vvg59wMMfl2')
+                .doc(this.currentUser)
+                .collection(this.currentUser)
                 .where('createdAt', '<', currentDate)
                 .where('createdAt', '>', endDate._d);
 

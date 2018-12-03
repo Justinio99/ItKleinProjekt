@@ -4,6 +4,16 @@ export default {
         Players: Array
     },
     data() {
-      return {};
+      return {
+          players: null
+      };
+    },
+    created(){
+        this.players = this.Players
+    },
+    watch:{
+        Players(){
+            console.log(this.Players[0].name);
+        }
     }
  };

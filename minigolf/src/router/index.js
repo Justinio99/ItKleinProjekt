@@ -14,7 +14,7 @@ Vue.use(Router)
 const router = new Router({
   routes: [
     {
-      path: '/home',
+      path: '/',
       name: 'Start',
       component: Start,
       meta: {
@@ -50,7 +50,7 @@ const router = new Router({
       name: 'statistik',
       component: Statistik,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {

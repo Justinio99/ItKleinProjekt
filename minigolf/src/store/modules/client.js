@@ -2,9 +2,9 @@
 
 // initial state
 const state = {
-  users: []
+  users: [],
+  isLoggedIn: false
 
-  //    test:true
 };
 
 // getters
@@ -12,6 +12,9 @@ const getters = {
   getUsers() {
       return state.users;
   },
+  getLoggedIn(){
+      return state.isLoggedIn;
+  }
 
 };
 
@@ -43,6 +46,10 @@ const actions = {
 
 // mutations
 const mutations = {
+
+    setIsLoggedIn($state, val){
+        $state.isLoggedIn = val;
+    },
   setUser($state, user) {
       $state.users.push(user);
   },
