@@ -19,7 +19,6 @@ export default {
   async created() {
     this.isLoggedIn = firebase.auth().currentUser;
    await this.setLocalStorage()
-   console.log(this.users);
     this.userResults = [];
     for (let i = 0; i < this.users.length; i++) {
       var result = 0;
@@ -54,7 +53,7 @@ export default {
     resetUser() {
       localStorage.clear()
       this.setClearState()
-      this.$router.push('/home');
+      this.$router.push('/');
     },
     saveToDatabase() {
       const myGame = this.users.filter((user)=> user.id == this.selectedValue);

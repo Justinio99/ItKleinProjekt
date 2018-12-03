@@ -17,7 +17,6 @@ export default {
     created() {
         this.currentUser = firebase.auth().currentUser.uid;
         this.calcYear()
-        console.log(this.currentUser);
     },
     beforeCreate() {
         this.calcYear()
@@ -80,7 +79,6 @@ export default {
                 })
 
             });
-            console.log(this.results);
             this.chartObj = this.results;
         },
         calcOneMonth() {
@@ -98,7 +96,6 @@ export default {
                 })
 
             });
-            console.log(this.results);
             this.chartObj = this.results;
         }
 

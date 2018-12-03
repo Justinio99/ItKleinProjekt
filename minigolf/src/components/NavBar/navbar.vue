@@ -3,6 +3,7 @@
 <ul>
   <li  v-show="!getLoggedIn" @click="showLogin"><a class="active">Login</a></li>
   <li v-show="getLoggedIn" @click="logout"><a class="active">Logout</a></li>
+   <li v-show="getLoggedIn" @click="redirect"><a class="active">Statistik</a></li>
   <li @click="showHome"><a class="active">Home</a></li>
 </ul>
 

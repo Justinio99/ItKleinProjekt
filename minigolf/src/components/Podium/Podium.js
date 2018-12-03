@@ -13,7 +13,6 @@ export default {
     },
     watch:{
         Players(){
-            console.log(this.Players[0].name);
         }
     }
  };

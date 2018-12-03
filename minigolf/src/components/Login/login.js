@@ -9,13 +9,15 @@ import { mapMutations } from 'vuex';
         
       }
     },
+    created(){
+    },
     methods:{
       ...mapMutations(['setIsLoggedIn']),
       login(){
         firebase.auth().signInWithEmailAndPassword(this.email,this.password).then((user) =>{
           alert('you are now logged in');
           this.setIsLoggedIn(true)
-          this.$router.push('/home')
+          this.$router.push('/')
          
         }).catch((err) =>{
           alert(err.message);

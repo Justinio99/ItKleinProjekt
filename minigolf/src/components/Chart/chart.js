@@ -39,7 +39,6 @@ export default {
         for (let i = 0; i < this.data.length; i++) {
           dataArray.push(this.data[i].caclHits)
         }
-        console.log(dataArray, 'dataarray');
         var data = {
           labels: yearMonths,
           datasets: [
