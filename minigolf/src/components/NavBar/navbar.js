@@ -4,9 +4,15 @@ export default {
   components: {},
   data() {
     return {
-      clilcked: false
+      clilcked: false,
+      gameIsPlaying : false
     };
   },
+watch:{
+  getUsers: function(){
+    this.gameIsPlaying = true;
+  }
+},
   methods: {
     ...mapMutations(["setIsLoggedIn"]),
     showLogin() {
@@ -21,6 +27,9 @@ export default {
 
     redirect() {
       this.$router.push("statistik");
+    },
+    currentGame(){
+      this.$router.push('/Traks');
     },
 
     logout() {
@@ -38,6 +47,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getLoggedIn"])
+    ...mapGetters(["getLoggedIn",'getUsers'])
   }
 };

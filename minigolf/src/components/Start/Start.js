@@ -14,7 +14,7 @@ export default {
     startGame () {
       localStorage.setItem('users','null');
       this.$store.dispatch('setUpState', this.players);
-      this.$router.push('/slidertest');
+      this.$router.push('/Traks');
     }
   }
 

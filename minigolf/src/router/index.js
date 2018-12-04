@@ -30,8 +30,8 @@ const router = new Router({
       }
     },
     {
-      path: '/SliderTest',
-      name: 'SliderTEst',
+      path: '/Traks',
+      name: 'Traks',
       component: Slider,
       meta: {
         requiresAuth: false

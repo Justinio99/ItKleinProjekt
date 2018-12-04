@@ -24,7 +24,7 @@ export default {
             lastname: this.lastname,
             isClubMember: this.isClubMember
           })
-          alert('you are ready to go');
+          alert('Dein Account wurde erfolgreich erstellt!');
           this.$router.push('/login');
         }).catch((err) =>{
           alert(err.message);
