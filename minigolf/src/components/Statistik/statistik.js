@@ -16,11 +16,9 @@ export default {
     },
     created() {
         this.currentUser = firebase.auth().currentUser.uid;
-        this.calcYear()
+        
     },
-    beforeCreate() {
-        this.calcYear()
-    },
+    
     methods: {
         handler() {
             switch (this.selected) {
@@ -55,8 +53,6 @@ export default {
 
             });
             this.chartObj = this.results;
-
-
 
 
         },
