@@ -2,24 +2,24 @@
 <div>
   <div class="track-container">
     <Flickity ref="flickity" :options="flickityOptions">
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
-      <div class="carousel-cell"></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/jiQ5CGZbXfc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/qq7YH0ExIic" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/5lgEQwx-_iw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/rKUwYjLk-ls" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/lLEzRYh-dVY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/MQ7kxKIRX_8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/tKX8cH3v3nA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/OEifzchsPeM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/Iuv58hIpyw8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/8Y0okLtfP3g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/5uy1asZvu_0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/BE5oxJMiBj8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/DPebiFKciRQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/mju8AkNplnY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/LtmXHGjNXMM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/RUKkGaUfWoY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/1DlmWa67miE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="carousel-cell"><iframe width="247.5" height="450" src="https://www.youtube.com/embed/CenDfj10tEo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
     </Flickity>
   </div>
   <div class="counter-container" >
