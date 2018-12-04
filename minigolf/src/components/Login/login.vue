@@ -8,10 +8,10 @@
     <input v-model="email" type="text" placeholder="Email" />
     <input v-model="password" type="password" placeholder="Password" />
 
-    <a href="#">Forgot password?</a>
-   <button  @click="login">login</button><br>
-   <button @click="()=> this.$router.push('/signup')">signup</button>
-
+<div class="buttons">
+   <button @click="()=> this.$router.push('/signup')">Sign up</button>
+   <button @click="login">login</button><br/>
+</div>
 
 
 </div>

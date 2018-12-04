@@ -7,7 +7,6 @@ import Signup from '../components/SignUp/signup.vue'
 import Statistik from '../components/Statistik/statistik.vue'
 import Ranking from '../components/ranking/ranking.vue'
 import firebase from 'firebase'
-import statistik from '../components/Statistik/statistik';
 
 Vue.use(Router)
 
@@ -30,8 +29,8 @@ const router = new Router({
       }
     },
     {
-      path: '/SliderTest',
-      name: 'SliderTEst',
+      path: '/slider',
+      name: 'slider',
       component: Slider,
       meta: {
         requiresAuth: false

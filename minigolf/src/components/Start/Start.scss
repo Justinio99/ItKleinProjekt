@@ -1,69 +1,81 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,800);
-
-*, *:before, *:after{
-  box-sizing: border-box;
-  padding: 0; margin: 0;
-  font: 300 1em/1.5 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-  text-decoration: none;
-  color: #111;
-}
-.btn-addPlayer{
-    margin-bottom: 20px;
-}
-
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  padding: 18px;
+  top: 5px;
+  width: 304px;
+  min-height: 514px;
+  margin: 0 auto;
+  border: 1px solid #EEEEEE;
+  -webkit-box-shadow: 0 0 8px 2px #ccc;
+  box-shadow: 0 0 8px 2px #ccc;
 }
 
-.players{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+p{
+  margin-bottom: 20px;
 }
+
+h1 {
+  text-align: center;
+  font-weight: 100;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  margin-bottom: 20px;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
+
+.row p{
+  margin-top: 8px;
+  margin-left: 5px;
+}
+
+.space-beetwen{
+  justify-content: space-between;
+}
+
 .addPlayer{
-    border: 1px solid black;
-    height: 30px;
-    text-align: center;
-    margin-bottom: 20px;
-    border-radius: 10px;
+  border: 1px solid black;
+  height: 30px;
+  text-align: center;
+  margin-top: 3px;
+  margin-bottom: 17px;
+  border-radius: 10px;
 }
 
-button:hover{cursor: pointer}
-    button {
-      background: transparent; outline: none;
-      position: relative;
-      border: 2px solid #111;
-      width: 181px;
-      padding: 15px 50px;
-      overflow: hidden;
-    }
+.plus {
+  margin-left: 5px;
+  background-color: #D6D6D6;
+  border-radius: 50%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: black;
+  width: 2em;
+  height: 2em;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
 
-    /*button:before (attr data-hover)*/
-    button:hover:before{opacity: 1; transform: translate(0,0);}
-    button:before{
-      content: attr(data-hover);
-      position: absolute;
-      top: 1.1em; left: 0;
-      width: 100%;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-weight: 800;
-      font-size: .8em;
-      opacity: 0;
-      transform: translate(-100%,0);
-      transition: all .3s ease-in-out;
-    }
-      /*button div (button text before hover)*/
-      button:hover div{opacity: 0; transform: translate(100%,0)}
-      button div{
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        font-weight: 800;
-        font-size: .8em;
-        transition: all .3s ease-in-out;
-      }
+button{
+  border-radius: 10px;
+  background-color: #D6D6D6;
+  border: none;
+  color: black;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 50%;
+}
