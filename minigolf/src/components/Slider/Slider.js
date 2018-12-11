@@ -24,7 +24,10 @@ export default {
       activeUser: {},
       lastClicked: 'clicked1',
       wasPrevPlayer: false,
-      showVideo: true
+      showVideo: true,
+      toggleText: 'Videos anzeigen',
+      showResults: false,
+      userCurrentResults: []
 
 
     };
@@ -32,17 +35,37 @@ export default {
 
   methods: {
     ...mapMutations(['increaseUserHits', 'setUserActive', 'decreaseUserHits', 'saveInCache', 'setLocalUser']),
-    
+    showCurrentResult(){
+      this.userCurrentResults = [];
+      this.showResults = !this.showResults
+      const usersGame = JSON.parse( localStorage.getItem('users'))
+      for(var i = 0; i < usersGame.length; i++){
+        var results = 0; 
+        for(var x = 0; x < usersGame[i].track.length; x++){
+         results += usersGame[i].track[x].hits
+        }
+
+        this.userCurrentResults.push({name: usersGame[i].name, totalHits: results})
+      }
+    },
     toggleVieo() {
-      this.showVideo = !this.showVideo
+      if (this.showVideo) {
+        this.showVideo = false
+        this.toggleText = 'Videos anzeigen'
+      } else {
+        this.showVideo = true
+        this.toggleText = 'Videos nicht zeigen'
+      }
     },
     nextTrack() {
+
 
       this.saveInCache();
       document.getElementById(this.lastClicked).style.background = 'none';
       this.currentHits = 0;
       this.$refs.flickity.next();
       this.whichTrack = this.whichTrack + 1;
+
     },
     lastTrack() {
       this.saveInCache();
@@ -53,26 +76,30 @@ export default {
 
 
     nextPlayer() {
-      this.setAllButtonsWhite();
-      if (this.wasPrevPlayer) {
-        this.setUserActive(this.activeUser.id);
-        const track = this.activeUser.track.filter(track => track.trackId == this.whichTrack);
-        document.getElementById(`clicked${track[0].hits}`).style.background = "red";
-        this.wasPrevPlayer = false;
-      }
-      if (this.lastPlayer || this.getUsers.length == 1) {
-        this.nextTrack();
-        this.setUserActive(1);
-        this.setActiveUser();
-        this.lastPlayer = false;
-      } else {
-        this.currentHits = 0;
-        this.updateActiveUser();
-        this.showHitInput = true;
-      }
+      if (this.activeUser.track[this.whichTrack - 1].hits == 0) {
+        alert('Keine Punktzahl eingegeben!')
+      }else{
+        this.setAllButtonsWhite();
+        if (this.wasPrevPlayer) {
+          this.setUserActive(this.activeUser.id);
+          const track = this.activeUser.track.filter(track => track.trackId == this.whichTrack);
+          // document.getElementById(`clicked${track[0].hits}`).style.background = "red";
+          this.wasPrevPlayer = false;
+        }
+        if (this.lastPlayer || this.getUsers.length == 1) {
+          this.nextTrack();
+          this.setUserActive(1);
+          this.setActiveUser();
+          this.lastPlayer = false;
+        } else {
+          this.currentHits = 0;
+          this.updateActiveUser();
+          this.showHitInput = true;
+        }
 
-      if (this.getUsers[this.getUsers.length - 1].track[17].played) {
-        this.$router.push('/ranking')
+        if (this.getUsers[this.getUsers.length - 1].track[17].played) {
+          this.$router.push('/ranking')
+        }
       }
     },
 
@@ -81,7 +108,7 @@ export default {
       this.lastTrack();
       this.setActiveUser(this.activeUser.id - 1);
       const track = this.activeUser.track.filter(track => track.trackId == this.whichTrack);
-      document.getElementById(`clicked${track[0].hits}`).style.background = "yellow";
+      // document.getElementById(`clicked${track[0].hits}`).style.background = "yellow";
 
     },
 

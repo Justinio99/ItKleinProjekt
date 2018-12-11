@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Wähle aus</h1>
+    <h1>Rangliste</h1>
     <Podium :Players="userResults"></Podium>
     <p v-show="isLoggedIn">Möchtest du dein Resultat speichern ?</p>
     <div class="row">

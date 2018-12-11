@@ -1,32 +1,32 @@
 <template>
 <div>
 
-   <div v-if="players.length >= 3" class="container">
+   <div v-if="Players.length >= 3" class="container">
      <div class="place2">
-       <p class="title2">{{players[0].name}}</p>
+       <b class="title2">{{Players[0].name}}</b>
        <p class="rank">2</p>
      </div>
      <div class="place1">
-       <p class="title1">{{players[0].name}}</p>
+       <b class="title1">{{Players[0].name}}</b>
        <p class="rank">1</p>
      </div>
      <div class="place3">
-       <p class="title3">{{players[0].name}}</p>
+       <b class="title3">{{Players[0].name}}</b>
        <p class="rank">3</p>
      </div>
      <div class="all-results">
-       <div v-for="(player,index) in players" :key="index">
+       <div v-for="(player,index) in Players" :key="index">
          <p>{{index+1}}. {{player.name}}: {{player.result}} schläge</p>
        </div>
      </div>
    </div>
    
-   <div v-if="players.length >=2">
-     <p>{{players[0].name}} ist auf dem hat das Spiel gewonnen mit {{players[0].result}} schlägen</p>
-     <p>{{players[1].name}} ist auf dem zweiten Platz mit {{players[1].result}} schlägen</p>
+   <div v-if="Players.length ==2">
+     <p><b>{{Players[0].name}}</b> ist auf dem hat das Spiel gewonnen mit <b>{{Players[0].result}} </b>schlägen</p>
+     <p><b>{{Players[1].name}}</b> ist auf dem zweiten Platz mit <b>{{Players[1].result}}</b> schlägen</p>
    </div>
-    <div v-if="players.length >=1">
-     <p>Du hattest {{players[0].result}} schläge in dieser Runde</p>
+    <div v-if="Players.length ==1">
+     <p>Du hattest {{Players[0].result}} schläge in dieser Runde</p>
    </div>
 
    </div>

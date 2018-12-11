@@ -21,13 +21,23 @@
       <div class="carousel-cell"><iframe v-show="showVideo" width="247.5" height="450" src="https://www.youtube.com/embed/1DlmWa67miE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
       <div class="carousel-cell"><iframe v-show="showVideo" width="247.5" height="450" src="https://www.youtube.com/embed/CenDfj10tEo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
     </Flickity>
-  </div>
-  <div class="counter-container" >
-<!-- <button @click="addHit">Increase hit</button> -->
-<div class="show-video-container">
-  <button @click="toggleVieo" >Show Video</button>
+    
+<i class="fas fa-info icon-style"></i>
+  </div> 
+  
+  <div class="show-video-container">
+  <button class="button-toggle" @click="toggleVieo" >{{toggleText}}</button>
+  <button class="button-toggle" @click="showCurrentResult">Zweischenresultate</button>
 </div>
-    <div class="increase">
+
+<div v-show="showResults" class="current-result">
+  <h2>Aktuelle Resultate</h2>
+  <p v-for="(item,index) in userCurrentResults" :key="index"><strong>{{item.name}}:</strong> {{item.totalHits}} Punkte</p>
+</div>
+  <div v-show="!showResults" class="counter-container" >
+<!-- <button @click="addHit">Increase hit</button> -->
+
+    <div v-show="!showResults" class="increase">
       <div v-for="(item,index) in 7" :key="item" class="increase-button" :id="['clicked' + (index+1)]"
       @click="addHit(index+1)">{{index+1}}</div>
     </div>
@@ -35,8 +45,8 @@
     <p>{{activeUser.name +' hat '+currentHits}}</p>
 
   </div>
-  <button class="lastButton" @click="previousPlayer()">Last Player</button>
-  <button class="nextButton" @click="nextPlayer()">Next Player</button>
+  <button v-show="!showResults" class="lastButton" :disabled="whichTrack == 1" @click="previousPlayer()">Last Player</button>
+  <button v-show="!showResults" class="nextButton" @click="nextPlayer()">Next Player</button>
 
 </div>
 </template>

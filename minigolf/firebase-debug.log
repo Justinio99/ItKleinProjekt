@@ -1,0 +1,63 @@
+[debug] [2018-12-11T13:14:35.136Z] ----------------------------------------------------------------------
+[debug] [2018-12-11T13:14:35.141Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\taaspju1\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2018-12-11T13:14:35.142Z] CLI Version:   6.1.1
+[debug] [2018-12-11T13:14:35.142Z] Platform:      win32
+[debug] [2018-12-11T13:14:35.142Z] Node Version:  v8.12.0
+[debug] [2018-12-11T13:14:35.144Z] Time:          Tue Dec 11 2018 14:14:35 GMT+0100 (Mitteleuropäische Zeit)
+[debug] [2018-12-11T13:14:35.144Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-11T13:14:35.222Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-11T13:14:35.223Z] > authorizing via signed-in user
+[debug] [2018-12-11T13:14:35.223Z] [iam] checking project minigolf-club-bern for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2018-12-11T13:14:35.226Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-12-11T13:14:35.226Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2018-12-11T13:14:35.473Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-11T13:14:35.502Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/minigolf-club-bern:testIamPermissions  
+
+[debug] [2018-12-11T13:14:36.329Z] Error: EPERM: operation not permitted, rename 'C:\Users\taaspju1\.config\configstore\firebase-tools.json.2760812167' -> 'C:\Users\taaspju1\.config\configstore\firebase-tools.json'
+    at Object.fs.renameSync (fs.js:766:18)
+    at Function.writeFileSync [as sync] (C:\Users\taaspju1\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\configstore\node_modules\write-file-atomic\index.js:124:8)
+    at Configstore.set (C:\Users\taaspju1\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\configstore\index.js:62:21)
+    at Configstore.set (C:\Users\taaspju1\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\configstore\index.js:93:11)
+    at Request._callback (C:\Users\taaspju1\AppData\Roaming\npm\node_modules\firebase-tools\lib\fetchMOTD.js:40:25)
+    at Request.self.callback (C:\Users\taaspju1\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (C:\Users\taaspju1\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1161:10)
+    at emitOne (events.js:116:13)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2018-12-11T13:14:36.420Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-11T13:14:36.426Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/minigolf-club-bern  
+ 
+[debug] [2018-12-11T14:58:01.977Z] ----------------------------------------------------------------------
+[debug] [2018-12-11T14:58:01.980Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\taaspju1\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2018-12-11T14:58:01.980Z] CLI Version:   6.1.1
+[debug] [2018-12-11T14:58:01.980Z] Platform:      win32
+[debug] [2018-12-11T14:58:01.980Z] Node Version:  v8.12.0
+[debug] [2018-12-11T14:58:01.982Z] Time:          Tue Dec 11 2018 15:58:01 GMT+0100 (Mitteleuropäische Zeit)
+[debug] [2018-12-11T14:58:01.982Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-11T14:58:01.999Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-11T14:58:02.000Z] > authorizing via signed-in user
+[debug] [2018-12-11T14:58:02.000Z] [iam] checking project minigolf-club-bern for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2018-12-11T14:58:02.002Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-12-11T14:58:02.003Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2018-12-11T14:58:02.211Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-11T14:58:02.222Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/minigolf-club-bern:testIamPermissions  
+
+[debug] [2018-12-11T14:58:02.864Z] Error: EPERM: operation not permitted, rename 'C:\Users\taaspju1\.config\configstore\firebase-tools.json.3483077416' -> 'C:\Users\taaspju1\.config\configstore\firebase-tools.json'
+    at Object.fs.renameSync (fs.js:766:18)
+    at Function.writeFileSync [as sync] (C:\Users\taaspju1\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\configstore\node_modules\write-file-atomic\index.js:124:8)
+    at Configstore.set (C:\Users\taaspju1\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\configstore\index.js:62:21)
+    at Configstore.set (C:\Users\taaspju1\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\configstore\index.js:93:11)
+    at Request._callback (C:\Users\taaspju1\AppData\Roaming\npm\node_modules\firebase-tools\lib\fetchMOTD.js:40:25)
+    at Request.self.callback (C:\Users\taaspju1\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (C:\Users\taaspju1\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1161:10)
+    at emitOne (events.js:116:13)
+[error] 
+[error] Error: An unexpected error has occurred.
