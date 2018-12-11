@@ -20,6 +20,7 @@ const config = {
 };
 
 firebase.initializeApp(config);
+firebase.database()
 firebase.firestore().settings({timestampsInSnapshots: true});
 
 Vue.use(ToggleButton)

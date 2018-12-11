@@ -4,7 +4,8 @@ import LoginPage from '../components/Login/login.vue'
 import Slider from '../components/Slider/Slider.vue'
 import Start from '@/components/Start/Start.vue'
 import Signup from '../components/SignUp/signup.vue'
-import Chart from '../components/Chart/chart.vue'
+import Statistik from '../components/Statistik/statistik.vue'
+import Ranking from '../components/ranking/ranking.vue'
 import firebase from 'firebase'
 
 Vue.use(Router)
@@ -12,7 +13,7 @@ Vue.use(Router)
 const router = new Router({
   routes: [
     {
-      path: '/home',
+      path: '/',
       name: 'Start',
       component: Start,
       meta: {
@@ -28,8 +29,8 @@ const router = new Router({
       }
     },
     {
-      path: '/SliderTest',
-      name: 'SliderTEst',
+      path: '/slider',
+      name: 'slider',
       component: Slider,
       meta: {
         requiresAuth: false
@@ -46,7 +47,7 @@ const router = new Router({
     {
       path: '/statistik',
       name: 'statistik',
-      component: Chart,
+      component: Statistik,
       meta: {
         requiresAuth: true
       }
@@ -71,17 +72,17 @@ const router = new Router({
 })
 
 
-// router.beforeEach((to, from, next) => {
-//   if(to.matched.some(record => record.meta.requiresAuth)) {
-//      if (firebase.auth().onAuthStateChanged(user)) {
-//    next({
-//      path: '/Login'
-//    })
-//   } else next()
-
-// }
-// }
-// );
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth) {
+    const user = firebase.auth().currentUser; 
+    if (firebase.auth().onAuthStateChanged(user)) {
+      next()
+    } else {
+      next({name: 'login'})
+    }
+  }
+  next()
+})
 
 
 export default router;

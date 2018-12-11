@@ -24,8 +24,8 @@ export default {
             lastname: this.lastname,
             isClubMember: this.isClubMember
           })
-          console.log(user)
-          this.$router.push('/SliderTest');
+          alert('you are ready to go');
+          this.$router.push('/login');
         }).catch((err) =>{
           alert(err.message);
         })

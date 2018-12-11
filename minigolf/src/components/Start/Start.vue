@@ -1,14 +1,23 @@
 <template>
-<div class="container">
-
-     <div class="players">
-    <input style="width: 181px" class="addPlayer" type="text" :placeholder="`Spieler ${player.id}`" v-for="(player, index) in players" :key="player.id" v-model="players[index].name">
+  <div class="container">
+    <h1>spieler erfassen</h1>
+    <input
+      e="width: 181px"
+      class="addPlayer"
+      type="text"
+      :placeholder="`Spieler ${player.id}`"
+      v-for="(player, index) in players"
+      :key="player.id"
+      v-model="players[index].name"
+    >
+    <div class="row" @click="addPlayer">
+      <div class="plus">
+        <span>+</span>
+      </div>
+      <p>Spieler hinzufügen</p>
     </div>
-    <button @click="addPlayer" class="btn-addPlayer" style="font-size: 12px">
-        Spieler hinzufügen
-    </button>
-   <button data-hover="Lets Go !" @click="startGame"><div>Start</div></button>
-</div>
+    <button @click="startGame">Spiel starten</button>
+  </div>
 </template>
 
 

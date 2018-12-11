@@ -19,16 +19,27 @@ body { font-family: sans-serif; }
         background: black;
         border-radius: 5px;
         counter-increment: carousel-cell;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        
+       .spot{
+        position: absolute;
+        z-index: 1;
+        overflow: hidden;
+       }
       }
       
       /* cell number */
       .carousel-cell:before {
         display: block;
-        text-align: center;
+        position: relative;
         content: counter(carousel-cell);
         line-height: 200px;
         font-size: 80px;
         color: white;
+        z-index: 9999;
+        position: absolute;
       }
 }
  
@@ -40,15 +51,20 @@ body { font-family: sans-serif; }
     display: flex;
     flex-direction: row;
     margin: 0 auto; 
+    
 
     .increase-button{
     cursor: pointer;
     width: 40px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+
     height: 40px;
     margin-left: 8px;
     border: 1px solid black;
     border-radius: 40px;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     }
  
@@ -59,6 +75,21 @@ body { font-family: sans-serif; }
   margin-top: 40px;
   border-radius: 10px;
   background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.lastButton{
+  margin-top: 40px;
+  border-radius: 10px;
+  background-color: rgb(224, 60, 31);
   border: none;
   color: white;
   padding: 15px 32px;

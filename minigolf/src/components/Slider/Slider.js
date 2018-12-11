@@ -9,7 +9,7 @@ export default {
   data() {
     return {
       flickityOptions: {
-        pageDots: true,
+        pageDots: false,
         resize: false,
         prevNextButtons: false,
         wrapAround: true,
@@ -23,6 +23,8 @@ export default {
       showHitInput: false,
       activeUser: {},
       lastClicked: 'clicked1',
+      wasPrevPlayer: false,
+      
 
     };
   },
@@ -31,18 +33,32 @@ export default {
     ...mapMutations(['increaseUserHits', 'setUserActive', 'decreaseUserHits','saveInCache','setLocalUser']),
 
     nextTrack() {
+ 
       this.saveInCache();
       document.getElementById(this.lastClicked).style.background = 'none';
       this.currentHits = 0;
       this.$refs.flickity.next();
       this.whichTrack = this.whichTrack + 1;
     },
+    lastTrack() {
+      this.saveInCache();
+      this.currentHits = 0;
+      this.$refs.flickity.previous();
+      this.whichTrack = this.whichTrack - 1;
+    },
+
 
     nextPlayer() {
       this.setAllButtonsWhite();
-      if (this.lastPlayer) {
+      if(this.wasPrevPlayer){
+        this.setUserActive(this.activeUser.id);
+        const track = this.activeUser.track.filter(track => track.trackId  == this.whichTrack);
+        document.getElementById(`clicked${track[0].hits}`).style.background = "red";
+        this.wasPrevPlayer = false;
+      }
+      if (this.lastPlayer || this.getUsers.length == 1) {
         this.nextTrack();
-        this.setUserActive(1);
+        this.setUserActive(1); 
         this.setActiveUser();
         this.lastPlayer = false;
       } else {
@@ -50,7 +66,21 @@ export default {
         this.updateActiveUser();
         this.showHitInput = true;
       }
+
+      if(this.getUsers[this.getUsers.length-1].track[17].played){
+        this.$router.push('/ranking')
+      }
     },
+
+    previousPlayer() {
+      this.wasPrevPlayer = true;
+      this.lastTrack();
+      this.setActiveUser(this.activeUser.id -1);
+      const track = this.activeUser.track.filter(track => track.trackId  == this.whichTrack);
+      document.getElementById(`clicked${track[0].hits}`).style.background = "yellow";
+
+    },
+
     //Increase Hits per Track
     addHit(val) {
         this.increaseUserHits({
@@ -117,7 +147,6 @@ export default {
       this.setActiveUser();
       this.showHitInput = true; 
      }
-     
   
   },
   computed: { 

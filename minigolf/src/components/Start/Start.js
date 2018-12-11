@@ -12,9 +12,9 @@ export default {
       this.players.push({name: '', id: this.players.length + 1});   
     },
     startGame () {
-      localStorage.setItem('users','null');
-      this.$store.dispatch('setUpState', this.players);
-      this.$router.push('/slidertest');
+      localStorage.setItem('users','null')
+      this.$store.dispatch('setUpState', this.players)
+      this.$router.push('/slider')
     }
   }
 

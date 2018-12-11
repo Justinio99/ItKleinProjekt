@@ -2,9 +2,9 @@
 
 // initial state
 const state = {
-  users: []
+  users: [],
+  isLoggedIn: false
 
-  //    test:true
 };
 
 // getters
@@ -12,6 +12,9 @@ const getters = {
   getUsers() {
       return state.users;
   },
+  getLoggedIn(){
+      return state.isLoggedIn;
+  }
 
 };
 
@@ -43,10 +46,14 @@ const actions = {
 
 // mutations
 const mutations = {
+
+    setIsLoggedIn($state, val){
+        $state.isLoggedIn = val;
+    },
   setUser($state, user) {
       $state.users.push(user);
   },
-  //Increase and Descrase users Hits using Val
+  //Increase and Descrase users Hits using val
   increaseUserHits($state, infos) {
       var currentUser = $state.users.filter(user => user.id === infos.userId)[0];
       currentUser.track.filter(track => track.trackId === infos.trackId)[0].hits = infos.valHits;
@@ -54,7 +61,6 @@ const mutations = {
   },
   //Set user Active that we know which player is playing
   setUserActive($state, userId) {
-    console.log($state.useres);
       for (var i = 0; i < $state.users.length; i++) {
           $state.users[i].active = false;
       }
@@ -73,11 +79,11 @@ const mutations = {
       }
   },
     setLocalUser($state, localUser){
-        console.log("This is the state", $state.users);
-        console.log("this  is the Lstorage",localUser)
     $state.users = localUser;
-    console.log("This is the after", $state.users);
     
+  },
+  setClearState(state) {
+    state.users = [];
   }
 };
 

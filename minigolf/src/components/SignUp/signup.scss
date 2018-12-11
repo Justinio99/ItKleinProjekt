@@ -1,17 +1,9 @@
-html {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  height: 100vh;
-  background: #F5F6F7;
-  color: #5B5A5A;
-  font-size:12px;
-  font-weight: 200;
-}
-
 .container {
+  display: block;
   position: relative;
-  top: 72px;
-  width: 380px;
-  height: 575px;
+  top: 5px;
+  width: 340px;
+  height: 550px;
   margin: 0 auto;
   border: 1px solid #EEEEEE;
   -webkit-box-shadow: 0 0 8px 2px #ccc;
@@ -32,7 +24,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 10px;
   margin-bottom: 20px;
-
+  margin-top: 0 !important;
 }
 
 a {
@@ -53,7 +45,7 @@ input {
 input[type="submit"] {
   padding: 16px;
   border-radius: 50px;
-  background: #129793;
+  background: blue;
   border: none;
   box-shadow: 0 8px 15px 0 rgba(18, 151, 147, .4);
   display: block;
@@ -66,28 +58,24 @@ input[type="submit"] {
   letter-spacing: 1.05px;
 }
 
-form a{
-  display: block;
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 28px;
-  text-align: right;
-  color: #5B5A5A;
+.isMember{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-div.signup {
-  text-align: center;
-  width: 100%;
-  position: absolute;
-  bottom: 20px;
+.toggle{
+  margin-top: 13px;
+  margin-left: 8px;
 }
 
-div.signup p {
-  padding: 0px;
-  margin: 4px 0px;
+button{
+  border-radius: 10px;
+  background-color: #D6D6D6;
+  border: none;
+  color: black;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 30%;
 }
-
-div.signup a {
-  color: #FF7260;
-}
-

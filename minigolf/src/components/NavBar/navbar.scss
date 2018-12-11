@@ -6,7 +6,7 @@ ul {
   top: 0;
   width: 100%;
   overflow: hidden;
-  background-color: #054a0e;
+  background-color: #008236;
 }
 
 li {
@@ -22,13 +22,12 @@ li a {
 }
 
 li a:hover {
-  background-color: #111;
+  background-color: #DDE3E7;
+  color: black;
 }
 
 .nav-bar{
   display: flex;
   flex-direction: row;
-  width: 100%;
   align-items: flex-end;
-
 }
