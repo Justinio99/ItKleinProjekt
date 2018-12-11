@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  top: 5px;
+  width: 340px;
+  height: 550px;
+  margin: 0 auto;
+  border: 1px solid #EEEEEE;
+  -webkit-box-shadow: 0 0 8px 2px #ccc;
+  box-shadow: 0 0 8px 2px #ccc;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 100;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  margin-bottom: 20px;
+  margin-top: 18px;
+}
+
+.chart {
+  margin-top: 20px;
+  width: 325px;
+}
+
+.dropdown {
+  border-radius: 10px;
+  background-color: #D6D6D6;
+  border: none;
+  color: black;
+  padding: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}

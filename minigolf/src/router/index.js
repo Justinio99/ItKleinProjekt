@@ -7,7 +7,6 @@ import Signup from '../components/SignUp/signup.vue'
 import Statistik from '../components/Statistik/statistik.vue'
 import Ranking from '../components/ranking/ranking.vue'
 import firebase from 'firebase'
-import statistik from '../components/Statistik/statistik';
 
 Vue.use(Router)
 
@@ -57,6 +56,14 @@ const router = new Router({
       path: '/ranking',
       name: 'ranking',
       component: Ranking,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/chart',
+      name: 'chart',
+      component: Chart,
       meta: {
         requiresAuth: false
       }

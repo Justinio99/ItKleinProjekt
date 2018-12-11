@@ -1,0 +1,51 @@
+.container {
+    display: block;
+    position: relative;
+    padding: 18px;
+    top: 5px;
+    width: 304px;
+    min-height: 514px;
+    margin: 0 auto;
+    border: 1px solid #EEEEEE;
+    -webkit-box-shadow: 0 0 8px 2px #ccc;
+    box-shadow: 0 0 8px 2px #ccc;
+  }
+  
+  h1 {
+    text-align: center;
+    font-weight: 100;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+  }
+
+  button{
+    border-radius: 10px;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 35%;
+  }
+
+  .red{
+    background-color: rgb(224, 60, 31);
+    color: white;
+  }
+
+  .green{
+    background-color: #4CAF50;
+    color: white;
+  }
+
+.dropdown{
+    border-radius: 10px;
+    background-color: #D6D6D6;
+    border: none;
+    color: black;
+    padding: 8px;
+    font-size: 12px;
+    cursor: pointer;
+}
