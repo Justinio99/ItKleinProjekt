@@ -2,8 +2,9 @@
 <div>
 
    <div v-if="Players.length >= 3" class="container">
+     <div class="podium">
      <div class="place2">
-       <b class="title2">{{Players[0].name}}</b>
+       <b class="title2">{{Players[1].name}}</b>
        <p class="rank">2</p>
      </div>
      <div class="place1">
@@ -11,13 +12,16 @@
        <p class="rank">1</p>
      </div>
      <div class="place3">
-       <b class="title3">{{Players[0].name}}</b>
+       <b class="title3">{{Players[2].name}}</b>
        <p class="rank">3</p>
      </div>
+     </div>
+     <div class="pesche">
      <div class="all-results">
        <div v-for="(player,index) in Players" :key="index">
          <p>{{index+1}}. {{player.name}}: {{player.result}} schläge</p>
        </div>
+     </div>
      </div>
    </div>
    

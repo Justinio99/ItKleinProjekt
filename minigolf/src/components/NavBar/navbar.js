@@ -5,16 +5,25 @@ export default {
   data() {
     return {
       clilcked: false,
-      gameIsPlaying : false
+      gameIsPlaying: false
     };
   },
-watch:{
-  getUsers: function(){
-    this.gameIsPlaying = true;
-  }
-},
+  watch: {
+    getUsers: function () {
+      this.gameIsPlaying = true;
+    }
+  },
   methods: {
     ...mapMutations(["setIsLoggedIn"]),
+    resetGame() {
+      var confirm = confirm('Sämtliche Daten vom Aktuellen spiel werden gelöscht. Willlst du wirklich das Spiel zurücksetzen?')
+      if (confirm) {
+
+        localStorage.clear()
+        window.location.reload(true)
+        this.$router.push('/');
+      }
+    },
     showLogin() {
       if (this.clilcked) {
         this.$router.go(-1);
@@ -28,7 +37,7 @@ watch:{
     redirect() {
       this.$router.push("statistik");
     },
-    currentGame(){
+    currentGame() {
       this.$router.push('/Traks');
     },
 
@@ -47,6 +56,6 @@ watch:{
     }
   },
   computed: {
-    ...mapGetters(["getLoggedIn",'getUsers'])
+    ...mapGetters(["getLoggedIn", 'getUsers'])
   }
 };

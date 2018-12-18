@@ -36,6 +36,8 @@ export default {
       })
 
     }
+
+   this.userResults.sort(this.dynamicSort("result"))
   },
 
 
@@ -59,6 +61,7 @@ export default {
     resetUser() {
       localStorage.clear()
       this.setClearState()
+      window.location.reload(true)
       this.$router.push('/');
     },
     saveToDatabase() {
