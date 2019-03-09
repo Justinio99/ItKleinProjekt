@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h2 style="width: 80%">Herzlich willkommen auf der Minigolfanlage Waldau</h2>
     <h1>spieler erfassen</h1>
     <input
       e="width: 181px"
@@ -17,6 +18,7 @@
       <p>Spieler hinzufügen</p>
     </div>
     <button @click="startGame">Spiel starten</button>
+    <h2 style="width: 58%;">Wir wünschen „Gut Loch“</h2>
   </div>
 </template>
 

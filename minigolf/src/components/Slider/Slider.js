@@ -27,7 +27,8 @@ export default {
       showVideo: true,
       toggleText: 'Videos anzeigen',
       showResults: false,
-      userCurrentResults: []
+      userCurrentResults: [],
+      textCurrentHits: 'Aktuelles Ergebnis'
 
 
     };
@@ -37,7 +38,13 @@ export default {
     ...mapMutations(['increaseUserHits', 'setUserActive', 'decreaseUserHits', 'saveInCache', 'setLocalUser']),
     showCurrentResult(){
       this.userCurrentResults = [];
-      this.showResults = !this.showResults
+     if(this.showResults){
+      this.showResults = false
+      this.textCurrentHits = 'Aktuelles Ergebnis'
+     }else {
+      this.showResults = true
+      this.textCurrentHits = 'Zurück zum Spiel'
+     }
       const usersGame = JSON.parse( localStorage.getItem('users'))
       for(var i = 0; i < usersGame.length; i++){
         var results = 0; 

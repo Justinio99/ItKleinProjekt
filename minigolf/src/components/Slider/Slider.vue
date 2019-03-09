@@ -22,12 +22,12 @@
       <div class="carousel-cell"><iframe v-show="showVideo" width="247.5" height="450" src="https://www.youtube.com/embed/CenDfj10tEo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
     </Flickity>
     
-<i class="fas fa-info icon-style"></i>
+<i class="fas fa-info icon-style" @click="() => this.$router.push('gameinfo')"></i>
   </div> 
   
   <div class="show-video-container">
   <button class="button-toggle" @click="toggleVieo" >{{toggleText}}</button>
-  <button class="button-toggle" @click="showCurrentResult">Zweischenresultate</button>
+  <button class="button-toggle" @click="showCurrentResult">{{textCurrentHits}}</button>
 </div>
 
 <div v-show="showResults" class="current-result">

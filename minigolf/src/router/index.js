@@ -6,6 +6,7 @@ import Start from '@/components/Start/Start.vue'
 import Signup from '../components/SignUp/signup.vue'
 import Statistik from '../components/Statistik/statistik.vue'
 import Ranking from '../components/ranking/ranking.vue'
+import GameInfo from '../components/GameInfo/GameInfo.vue'
 import firebase from 'firebase'
 
 Vue.use(Router)
@@ -64,6 +65,14 @@ const router = new Router({
       path: '/chart',
       name: 'chart',
       component: Chart,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/gameinfo',
+      name: 'gameinfo',
+      component: GameInfo,
       meta: {
         requiresAuth: false
       }
