@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: -125px;
+    margin-top: -130px;
     font-weight: bold;
  }
  
@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: -70px;
+    margin-top: -77px;
     font-weight: bold;
  }
  .title3 {
@@ -32,15 +32,14 @@
  .container {
     margin-top: 30px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
     height: 100%;
  }
  .place2 {
     width: 80px;
     height: 100px;
-    background-color: red;
+    border: 2px solid;
     margin: 5px;
     display: flex;
     flex-direction: column;
@@ -50,7 +49,7 @@
  .place1 {
     width: 80px;
     height: 150px;
-    background-color: green;
+    border: 2px solid;
     margin: 5px;
     display: flex;
     flex-direction: column;
@@ -60,11 +59,23 @@
  .place3 {
     width: 80px;
     height: 50px;
-    background-color: yellow;
+    border: 2px solid;
     margin: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
  }
+ .podium{
+    display: flex;
+    flex-direction: row !important;
+    align-items: flex-end;
+ }
+ .pesche{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+ }
+ 
  

@@ -82,8 +82,8 @@ const mutations = {
     $state.users = localUser;
     
   },
-  setClearState(state) {
-    state.users = [];
+  setClearState($state) {
+    $state.users = [];
   }
 };
 
