@@ -61,8 +61,8 @@ export default {
     resetUser() {
       localStorage.clear()
       this.setClearState()
-      window.location.reload(true)
       this.$router.push('/');
+      window.location.reload(true)
     },
     saveToDatabase() {
       const myGame = this.users.filter((user) => user.id == this.selectedValue);
@@ -80,7 +80,7 @@ export default {
         createdAt: new Date()
       })
 
-      
+
       this.$router.push('/statistik')
     }
   },

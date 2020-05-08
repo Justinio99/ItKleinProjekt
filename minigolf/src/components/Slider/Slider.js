@@ -24,7 +24,7 @@ export default {
       activeUser: {},
       lastClicked: 'clicked1',
       wasPrevPlayer: false,
-      showVideo: true,
+      showVideo: false,
       toggleText: 'Videos anzeigen',
       showResults: false,
       userCurrentResults: [],
@@ -47,7 +47,7 @@ export default {
      }
       const usersGame = JSON.parse( localStorage.getItem('users'))
       for(var i = 0; i < usersGame.length; i++){
-        var results = 0; 
+        var results = 0;
         for(var x = 0; x < usersGame[i].track.length; x++){
          results += usersGame[i].track[x].hits
         }

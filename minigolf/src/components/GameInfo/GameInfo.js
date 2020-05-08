@@ -3,5 +3,9 @@ export default {
     return {};
   },
   created() {},
-  methods: {}
+  methods: {
+    close(){
+this.$router.go(-1)
+    }
+  }
 };

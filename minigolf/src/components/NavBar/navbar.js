@@ -16,12 +16,14 @@ export default {
   methods: {
     ...mapMutations(["setIsLoggedIn"]),
     resetGame() {
-      var confirm = confirm('Sämtliche Daten vom Aktuellen spiel werden gelöscht. Willlst du wirklich das Spiel zurücksetzen?')
+      console.log('called');
+
+      var confirm = window.confirm('Sämtliche Daten vom Aktuellen spiel werden gelöscht. Willlst du wirklich das Spiel zurücksetzen?')
       if (confirm) {
 
         localStorage.clear()
-        window.location.reload(true)
         this.$router.push('/');
+        window.location.reload(true)
       }
     },
     showLogin() {
